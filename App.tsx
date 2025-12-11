@@ -3,37 +3,37 @@ import { ApplicantForm } from './components/ApplicantForm';
 import { translations, Language } from './translations';
 
 const BACKGROUND_IMAGES = [
-  // Happy woman, professional, outdoors
+  // Happy woman, professional, outdoors - vibrant colors
   "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
-  // Man, construction/engineer, smiling
+  // Man, construction/engineer, smiling - bright helmet
   "https://images.unsplash.com/photo-1504753793650-d4a2b783c15e?auto=format&fit=crop&w=600&q=80",
-  // Woman, medical/care
+  // Woman, medical/care - bright scrubs/smile
   "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80",
   // Man, welder/factory, positive
   "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80",
-  // Happy group/team success
+  // Happy group/team success - emotional
   "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80",
-  // Woman, casual, happy, sun
+  // Woman, casual, happy, sun - very bright
   "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80",
   // Man, mature, confident
   "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80",
-  // Woman, chef/kitchen
+  // Woman, chef/kitchen - bright white
   "https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=600&q=80",
   // Man, warehouse/logistics
   "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
-  // Young woman, student/travel
+  // Young woman, student/travel - bright sky
   "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80",
   // Man, older, friendly
   "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80",
   // Woman, business/office
   "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80",
-  // Man, casual, travel
+  // Man, casual, travel - nature background
   "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
   // Team, high five, success
   "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80",
   // Woman, engineer
   "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=600&q=80",
-  // Man, agriculture/outdoor
+  // Man, agriculture/outdoor - bright green
   "https://images.unsplash.com/photo-1505058097232-2d10c1c463f8?auto=format&fit=crop&w=600&q=80",
   // Woman, happy traveler
   "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80",
@@ -41,7 +41,7 @@ const BACKGROUND_IMAGES = [
   "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
   // Woman, smiling, glasses
   "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
-  // Group, laughing
+  // Group, laughing - very emotional
   "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80"
 ];
 
@@ -63,14 +63,16 @@ const BackgroundCollage = () => {
   return (
     <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-slate-50">
       <div className="absolute inset-0 w-full h-full overflow-y-auto no-scrollbar">
-        <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-4 p-4 opacity-70">
+        {/* Increased opacity for brighter look */}
+        <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-4 p-4 opacity-95">
           {imagesWithStyle.map(({ src, rotation, scale, id }) => (
             <div key={id} className="mb-4 break-inside-avoid">
               <img 
                 src={src} 
                 alt="Background" 
                 loading="lazy"
-                className="w-full rounded-2xl shadow-lg transition-transform duration-700 ease-in-out object-cover grayscale-[20%] hover:grayscale-0"
+                // Removed grayscale, kept shadow and added hover effect
+                className="w-full rounded-2xl shadow-lg transition-transform duration-700 ease-in-out object-cover hover:scale-[1.02]"
                 style={{
                   transform: `rotate(${rotation}deg) scale(${scale})`
                 }}
@@ -80,9 +82,9 @@ const BackgroundCollage = () => {
         </div>
       </div>
       
-      {/* Overlays for readability - stronger blur and gradient */}
-      <div className="absolute inset-0 bg-white/60 backdrop-blur-[3px]"></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-50/80 via-white/80 to-blue-50/90"></div>
+      {/* Lighter overlays to let colors pop */}
+      <div className="absolute inset-0 bg-white/30 backdrop-blur-[2px]"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/50 to-blue-100/40"></div>
     </div>
   );
 };
