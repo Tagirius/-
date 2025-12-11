@@ -1,0 +1,5 @@
+{
+  "name": "Анкета соискателя (Job Application)",
+  "description": "Форма заявки для трудоустройства с интеграцией отправки данных в WhatsApp.",
+  "requestFramePermissions": []
+}
